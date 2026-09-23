@@ -1,0 +1,140 @@
+/* Post ACE preview — restrained cinematic HUD typography */
+.scene-ace,
+.scene-secret,
+.scene-gesture-gate,
+.scene-surprise,
+.scene-fireworks,
+.scene-flight,
+.scene-final-message,
+.scene-ending {
+  --font-geist-sans: var(--font-display);
+  --font-geist-mono: var(--font-code);
+  letter-spacing: .012em;
+}
+
+.secret-scene::before,
+.gesture-gate-scene::before,
+.surprise-transition::before,
+.fireworks-scene::before,
+.flight-scene::before,
+.final-message-scene::before,
+.ending-scene::before {
+  content: "";
+  position: absolute;
+  inset: clamp(14px, 2.3vw, 32px);
+  z-index: 5;
+  pointer-events: none;
+  border: 1px solid rgba(145, 241, 223, .12);
+  clip-path: polygon(0 18px, 18px 0, 37% 0, calc(37% + 12px) 7px, 74% 7px, calc(74% + 12px) 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+  box-shadow: inset 0 0 40px rgba(145, 241, 223, .025);
+}
+
+.secret-scene::after,
+.gesture-gate-scene::after,
+.surprise-transition::after,
+.fireworks-scene::after,
+.flight-scene::after,
+.final-message-scene::after,
+.ending-scene::after {
+  content: "POST ACE  //  MISSION 18";
+  position: absolute;
+  z-index: 6;
+  left: clamp(34px, 4vw, 62px);
+  top: clamp(25px, 3.2vw, 48px);
+  pointer-events: none;
+  color: rgba(145, 241, 223, .48);
+  font: 600 11px/1 var(--font-code);
+  letter-spacing: .24em;
+}
+
+.ace-sequence::before {
+  content: "COMBAT RECORD  //  VERIFIED";
+  position: absolute;
+  left: clamp(24px, 4vw, 62px);
+  top: clamp(24px, 4vw, 52px);
+  color: rgba(145, 241, 223, .58);
+  font: 600 11px/1 var(--font-code);
+  letter-spacing: .24em;
+}
+
+.ace-sequence::after {
+  content: "5 HOSTILES  /  5 ELIMINATED  /  HEADSHOT PROTOCOL";
+  position: absolute;
+  right: clamp(24px, 4vw, 62px);
+  bottom: clamp(24px, 4vw, 52px);
+  color: rgba(255, 255, 255, .28);
+  font: 500 10px/1 var(--font-code);
+  letter-spacing: .16em;
+}
+
+.ace-sequence h1,
+.secret-copy h1,
+.gesture-gate-scene h1,
+.surprise-copy strong,
+.flight-copy h1,
+.ending-scene h1 {
+  font-family: var(--font-display);
+  font-stretch: condensed;
+  font-weight: 650;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.ace-sequence h1 {
+  color: transparent;
+  background: linear-gradient(108deg, #fff 5%, #d8fffa 42%, #f6dfad 67%, #fff 92%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 22px rgba(145, 241, 223, .14));
+}
+
+.ace-sequence p,
+.ace-sequence strong,
+.secret-copy > span,
+.secret-copy p,
+.gate-code,
+.surprise-copy span,
+.fireworks-copy span,
+.flight-copy > span,
+.flight-data,
+.message-progress,
+.message-next,
+.ending-scene > span,
+.ending-actions small {
+  font-family: var(--font-code);
+  text-transform: uppercase;
+}
+
+.secret-copy h1,
+.surprise-copy strong,
+.ending-scene h1 { letter-spacing: -.045em; text-shadow: 0 0 32px rgba(145, 241, 223, .09); }
+.gesture-gate-scene h1 { font-family: var(--font-interface); font-weight: 650; letter-spacing: .03em; text-shadow: 0 0 28px rgba(145, 241, 223, .13); }
+.fireworks-copy strong,
+.fireworks-copy h1 { font-family: var(--font-display); font-weight: 500; letter-spacing: -.045em; }
+.flight-copy h1 { font-weight: 520; letter-spacing: -.025em; }
+.message-page { padding: clamp(22px, 4vw, 54px); }
+.message-page span { font-family: var(--font-interface); font-weight: 430; letter-spacing: .055em; text-shadow: 0 0 24px rgba(145, 241, 223, .08); }
+.message-name .message-page span,
+.message-final .message-page span { font-family: var(--font-interface); font-weight: 560; letter-spacing: .18em; }
+.gesture-gate-scene button,
+.flight-control,
+.message-actions button,
+.ending-actions button { font-family: var(--font-code); font-size: 12px; box-shadow: 0 0 0 1px rgba(255, 79, 87, .16), 0 12px 32px rgba(0, 0, 0, .28); }
+
+.gate-actions { position: relative; display: grid; justify-items: center; gap: 12px; margin-top: 22px; }
+.gate-actions button { margin-top: 0; min-width: 230px; }
+.gate-actions .pointer-fallback { height: auto; min-width: 0; padding: 4px 8px; border: 0; clip-path: none; background: transparent; box-shadow: none; color: rgba(255,255,255,.38); font-size: 10px; }
+.tracking-live { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 22px; border: 1px solid rgba(145,241,223,.28); background: rgba(5,22,24,.55); color: var(--cyan); font: 600 11px/1 var(--font-code); letter-spacing: .16em; }
+.tracking-live i { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); animation: tracking-pulse 1.2s ease-in-out infinite; }
+.gate-status-palm-pose .gate-ring { border-color: rgba(145,241,223,.72); box-shadow: 0 0 80px rgba(145,241,223,.2); }
+.gate-status-palm-pose .gate-hand { color: var(--cyan); filter: grayscale(1) brightness(2); transform: scale(1.08); }
+.gate-status-permission-denied .gate-subtitle,
+.gate-status-error .gate-subtitle,
+.gate-status-unsupported .gate-subtitle { color: #ff8c92; }
+@keyframes tracking-pulse { 50% { opacity: .35; transform: scale(.72); } }
+
+@media (max-width: 680px) {
+  .secret-scene::after,.gesture-gate-scene::after,.surprise-transition::after,.fireworks-scene::after,.flight-scene::after,.final-message-scene::after,.ending-scene::after { font-size: 9px; letter-spacing: .16em; }
+  .ace-sequence::after { max-width: 68vw; text-align: right; line-height: 1.6; }
+  .message-page span { letter-spacing: .025em; }
+}
