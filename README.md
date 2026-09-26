@@ -7,6 +7,10 @@ An interactive birthday and farewell experience built as a game-inspired web sto
 - Real-time hand tracking for aiming, shooting, and opening a palm to launch fireworks, with pointer fallback.
 - Animated transitions, a five-target challenge, particle fireworks, and timed farewell messages.
 - Responsive fullscreen presentation with locally hosted hand-tracking model assets.
+- 
+## Design and technical challenges
+
+The main challenge was making camera-based gestures feel reliable in an interactive story. Hand landmarks can jitter, causing accidental shots or missed actions. I refined the gesture-triggering logic with movement thresholds, state transitions, and cooldowns, then tested the full flow from aiming and shooting to launching fireworks. I also kept pointer controls as a fallback when camera access is unavailable.
 
 ## Run locally
 
